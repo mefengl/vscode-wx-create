@@ -2,9 +2,12 @@
 	"name": "vscode-wx-create",
 	"displayName": "WX Create",
 	"description": "微信小程序文件助手 (forked from @diveDylan)",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "diveDylan",
-	"contributors": ["diveDylan", "mefengl"],
+	"contributors": [
+		"diveDylan",
+		"mefengl"
+	],
 	"publisher": "mefengl",
 	"repository": "https://github.com/mefengl/vscode-wx-create",
 	"engines": {
@@ -13,8 +16,7 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-	],
+	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
