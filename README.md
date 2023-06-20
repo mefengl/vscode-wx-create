@@ -1,8 +1,15 @@
-# wx-command
+# WX Create (forked from @diveDylan)
 
+## Updates
+
+- Change WXSS to SCSS
+- Simplify template
+- Update command names
+
+## Original README
 This is a extension for you to create wechat miniprogram files
 
-## usage
+### usage
 
 `wx page` --- create wechat miniprogram page files like the behaviour in wechatwebdevtool
 

@@ -6,18 +6,19 @@ import * as path from 'path';
 import { files } from './files';
 
 const { page, components } = files('index');
-const fileTypes: Array<string> = [ 'js', 'wxss', 'wxml', 'json' ];
+// const fileTypes: Array<string> = ['js', 'wxss', 'wxml', 'json'];
+const fileTypes: Array<string> = ['js', 'scss', 'wxml', 'json'];
 // handler for command: wx command
-function wxCommandHander(type: string,e: vscode.Uri) {
+function wxCommandHander(type: string, e: vscode.Uri) {
 	const stat = fs.statSync(e.fsPath);
 	// fixed bug in windows
 	// https://github.com/diveDylan/vs-wx-command/issues/1
 	const dir = path.normalize(e.fsPath);
-	
+
 	if (stat.isDirectory()) {
 		try {
-			fileTypes.map(async(i: string) => {
-				const data =  new Uint8Array(Buffer.from( type === 'page' ? page[i] : components[i]));
+			fileTypes.map(async (i: string) => {
+				const data = new Uint8Array(Buffer.from(type === 'page' ? page[i] : components[i]));
 				fs.writeFileSync(`${dir}/index.${i}`, data);
 			});
 			vscode.window.showInformationMessage(`create ${type} success!`);
@@ -44,15 +45,15 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('extension.wxPage', async (e: vscode.Uri) => {
 		// The code you place here will be executed every time your command is executed
 		wxCommandHander('page', e);
-			// Display a message box to the user
-		
+		// Display a message box to the user
+
 		// console.log('page');
-		
-	
+
+
 	});
 
 	context.subscriptions.push(disposable);
-	disposable = vscode.commands.registerCommand('extension.wxComponents', (e: vscode.Uri) => {
+	disposable = vscode.commands.registerCommand('extension.wxComponent', (e: vscode.Uri) => {
 		// The code you place here will be executed every time your command is executed
 		wxCommandHander('components', e);
 		// Display a message box to the user
@@ -62,4 +63,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

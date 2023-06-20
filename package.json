@@ -1,28 +1,30 @@
 {
-	"name": "wx-command",
-	"displayName": "wx-command",
-	"description": "微信小程序文件助手",
+	"name": "vscode-wx-create",
+	"displayName": "WX Create",
+	"description": "微信小程序文件助手 (forked from @diveDylan)",
 	"version": "0.0.2",
+	"author": "diveDylan",
+	"contributors": ["diveDylan", "mefengl"],
+	"publisher": "mefengl",
+	"repository": "https://github.com/mefengl/vscode-wx-create",
 	"engines": {
-		"vscode": "^1.36.0"
+		"vscode": "^1.79.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.wxPage",
-		"onCommand:extension.wxComponents"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "extension.wxPage",
-				"title": "wx page"
+				"title": "Create wx page"
 			},
 			{
-				"command": "extension.wxComponents",
-				"title": "wx components"
+				"command": "extension.wxComponent",
+				"title": "Create wx component"
 			}
 		],
 		"menus": {
@@ -31,7 +33,7 @@
 					"command": "extension.wxPage"
 				},
 				{
-					"command": "extension.wxComponents"
+					"command": "extension.wxComponent"
 				}
 			]
 		}
